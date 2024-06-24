@@ -24,5 +24,11 @@ def process_image():
     return send_file(img_bytes, mimetype='image/png')
 
 
+@app.route('/get_image_process', methods=['GET'])
+def get_image():
+	return jsonify({"get_image_success": "Image Success"})
+
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='localhost', port=5000)
