@@ -29,6 +29,28 @@ def get_image():
 	return jsonify({"get_image_success": "Image Success"})
 
 
+@app.route('/fizz_buzz', methods=['GET'])
+def get_fizz_buzz():
+	data = []
+	parameter = request.args.get('length', default=1, type=int)
+	for i in range (1, int(parameter)+1):
+		data1 = i % 3 == 0 and i % 5 == 0
+		data2 = i % 3 == 0
+		data3 = i % 5 == 0
+		if data1:
+			result = f"FizzBuzz {i}"
+			data.append(result)
+		elif data2:
+			result = f"Fizz {i}"
+			data.append(result)
+		elif data3:
+			result = f"Buzz {i}"
+			data.append(result)
+		else:
+			data.append(i)
+	return jsonify({"data": data})
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='localhost', port=5000)
+
