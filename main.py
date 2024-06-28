@@ -33,6 +33,10 @@ def get_image():
 def get_hello_word():
 	return jsonify({"hello_world": "Hello World"})
 
+@app.route('/hello', methods=['GET'])
+def get_hello():
+	return jsonify({"hello": "Hello"})
+
 @app.route('/fizz_buzz', methods=['GET'])
 def get_fizz_buzz():
 	data = []
